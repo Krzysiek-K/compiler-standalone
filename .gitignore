@@ -8,3 +8,6 @@
 *.db
 *.user
 *.tlog
+/src/lexer.inl
+/test/grammar.cpp
+/test/test.exe
