@@ -2,7 +2,11 @@ BEGIN{
 	indef=0
 }
 
-{ok=1}
+{
+	gsub(/\r/,"");
+	ok=1;
+}
+
 $1=="$$"{
 	print "" >OUTFILE;
 	print "#define " $2 "\t\\" >OUTFILE;
