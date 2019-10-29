@@ -52,6 +52,13 @@ int main(int argc,const char *argv[])
 	int mode = 0;
 	while(fgets(line,1000,fp))
 	{
+		// *nix fix
+		{
+			char *fix = line;
+			while( *fix && *fix!='\r' ) fix++;
+			*fix = 0;
+		}
+
 		line_id++;
 		if(line[0]=='$' && line[1]=='$')
 		{
