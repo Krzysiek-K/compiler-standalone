@@ -55,7 +55,7 @@ int main(int argc,const char *argv[])
 		// *nix fix
 		{
 			char *fix = line;
-			while( *fix && *fix!='\r' ) fix++;
+			while( *fix && *fix!='\r' && *fix!='\n' ) fix++;
 			*fix = 0;
 		}
 
@@ -112,9 +112,15 @@ int main(int argc,const char *argv[])
 			}
 		}
 		else if(mode==1)
+		{
 			header += line;
+			header += "\n";
+		}
 		else
+		{
 			footer += line;
+			footer += "\n";
+		}
 	}
 	fclose(fp);
 
