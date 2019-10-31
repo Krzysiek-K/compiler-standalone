@@ -24,7 +24,6 @@ $$ CODE_PRELEXER
 				if(lpos>=(int)ready_chars.size())
 				{
 					cc = GetChar();
-					if(cc<0 || cc>=128) cc=128-1;
 					ready_chars.push_back(cc);
 .
 					curpos_col++;
@@ -33,7 +32,7 @@ $$ CODE_PRELEXER
 				else
 					cc = ready_chars[lpos];
 				lpos++;
-				ls = LEXER[cc][ls];
+				ls = LEXER[(cc<0 || cc>=128) ? 127 : cc][ls];
 				if(ls<0) break;
 				if(MATCH[ls]>=0) best_match=MATCH[ls], best_len=ready_chars.size();
 				if(cc==0) break;

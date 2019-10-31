@@ -189,6 +189,7 @@ int	Compiler::GetChar()
 	int ch = fgetc(fp_src);
 	if( ch == EOF )
 		return 0;
+	if( ch=='\n' ) src_line++;
 	return ch;
 }
 

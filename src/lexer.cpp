@@ -242,7 +242,7 @@ bool Automation::MergeParallel(const Automation &a,bool ovr)
 				for(int k=0;k<statemap.size();k++)
 					if(statemap[k]==target)
 					{
-						id = i;
+						id = k;
 						break;
 					}
 				if(id<0)
